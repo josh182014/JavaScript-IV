@@ -68,27 +68,38 @@ class PM extends Instructor {
 //Person
 const george = new Person({
     name: 'George',
-    age: '98',
+    age: 98,
     location: 'Hawaii',
     gender: 'M'
 });
 //Instructor
 const daryl = new Instructor({
     name: 'Daryl',
-    location: 'Hawaii'
+    age: 40,
+    location: 'TX',
+    gender: 'M',
+    specialty: 'Teaching',
+    favLanguage: 'Python',
+    catchPhrase: 'Noice!'
 });
 //Student
 const dave = new Student({
     name: 'Dave',
+    age: 27,
     location: 'CA',
+    gender: 'M',
+    previousBackground: 'Python',
+    className: 'Web19',
     favSubjects: ['python','ruby']
 });
 
 //PM
-
 const smith = new PM({
     name: 'Smith',
+    age: 39,
     location: 'NY',
+    gender: 'M',
+    gradClassName: 'Web12',
     favInstructor: 'Instructor Josh',
 });
 
