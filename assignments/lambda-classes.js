@@ -27,6 +27,10 @@ class Instructor extends Person{
     grade(student,subject) {
         return `${student.name} receives a perfect score on ${subject}.`;
     }
+    alterGrade(student) {
+        student.grade = Math.floor(Math.random() * 100);
+        console.log(student.grade);
+    }
 };
 
 //Student
@@ -36,6 +40,7 @@ class Student extends Person {
         this.previousBackground = mainAttributes.previousBackground;
         this.className = mainAttributes.className;
         this.favSubjects = mainAttributes.favSubjects;
+        this.grade = mainAttributes.grade;
     }
     listsSubjects() {
         this.favSubjects.forEach(function(element) {
@@ -47,6 +52,14 @@ class Student extends Person {
     }
     sprintChallenge(subject) {
         return `${this.name} has begun sprint challenge on ${subject}.`
+    }
+    graduate() {
+        if(this.grade >= 70){
+            return `Congrats! You graduated Lambda with a grade of ${this.grade}`;
+        }
+        else {
+            return `Don't worry, keep trying and you'll get there!`
+        }
     }
 };
 
@@ -109,7 +122,8 @@ const carl = new Student({
     gender: 'M',
     previousBackground: 'Python',
     className: 'Web19',
-    favSubjects: ['python','ruby']
+    favSubjects: ['python','ruby'],
+    grade: 87,
 });
 
 const judith = new Student({
@@ -119,7 +133,8 @@ const judith = new Student({
     gender: 'F',
     previousBackground: 'Python',
     className: 'Web19',
-    favSubjects: ['python','ruby']
+    favSubjects: ['python','ruby'],
+    grade: 65,
 });
 
 //PM
@@ -152,3 +167,8 @@ console.log(carl.PRAssignment('JavaScript'));
 console.log(judith.sprintChallenge('CSS'));
 console.log(carol.debugsCode(carl,'Ruby'));
 console.log(glenn.favInstructor);
+
+//stretch
+daryl.alterGrade(carl)
+carol.alterGrade(judith)
+console.log(carl.graduate())
