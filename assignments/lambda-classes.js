@@ -38,7 +38,9 @@ class Student extends Person {
         this.favSubjects = mainAttributes.favSubjects;
     }
     listsSubjects() {
-        return this.favSubjects;
+        this.favSubjects.forEach(function(element) {
+            console.log(element);
+          });
     }
     PRAssignment(subject) {
         return `${this.name} has submitted a PR for ${subject}.`
@@ -66,49 +68,87 @@ class PM extends Instructor {
 
 //Objects
 //Person
-const george = new Person({
-    name: 'George',
-    age: 98,
-    location: 'Hawaii',
+const rick = new Person({
+    name: 'Rick',
+    age: 45,
+    location: 'King County',
     gender: 'M'
+});
+
+const michonne = new Person({
+    name: 'Michonne',
+    age: 34,
+    location: 'Unknown',
+    gender: 'F'
 });
 //Instructor
 const daryl = new Instructor({
     name: 'Daryl',
-    age: 40,
-    location: 'TX',
+    age: 46,
+    location: 'Atlanta',
     gender: 'M',
     specialty: 'Teaching',
     favLanguage: 'Python',
     catchPhrase: 'Noice!'
 });
+
+const maggie = new Instructor({
+    name: 'Maggie',
+    age: 31,
+    location: 'Atlanta',
+    gender: 'F',
+    specialty: 'Teaching',
+    favLanguage: 'Python',
+    catchPhrase: 'Noice!'
+});
 //Student
-const dave = new Student({
-    name: 'Dave',
-    age: 27,
-    location: 'CA',
+const carl = new Student({
+    name: 'Carl',
+    age: 16,
+    location: 'King County',
     gender: 'M',
     previousBackground: 'Python',
     className: 'Web19',
     favSubjects: ['python','ruby']
 });
 
-//PM
-const smith = new PM({
-    name: 'Smith',
-    age: 39,
-    location: 'NY',
-    gender: 'M',
-    gradClassName: 'Web12',
-    favInstructor: 'Instructor Josh',
+const judith = new Student({
+    name: 'Judith',
+    age: 9,
+    location: 'King County',
+    gender: 'F',
+    previousBackground: 'Python',
+    className: 'Web19',
+    favSubjects: ['python','ruby']
 });
 
+//PM
+const carol = new PM({
+    name: 'Carol',
+    age: 48,
+    location: 'Atlanta',
+    gender: 'F',
+    gradClassName: 'Web12',
+    favInstructor: 'Daryl',
+});
 
-//Logs
-console.log(george.speak());
+const glenn = new PM({
+    name: 'Glenn',
+    age: 27,
+    location: 'Atlanta',
+    gender: 'M',
+    gradClassName: 'Web12',
+    favInstructor: 'Maggie',
+});
+
+//Tests
+console.log(rick.speak());
+console.log(michonne.name);
+console.log(michonne.gender)
 console.log(daryl.demo('Python'));
-console.log(daryl.grade(dave,'Python'));
-console.log(dave.listsSubjects());
-console.log(dave.PRAssignment('JavaScript'));
-console.log(dave.sprintChallenge('CSS'));
-console.log(smith.debugsCode(dave,'Ruby'));
+console.log(maggie.grade(carl,'Python'));
+carl.listsSubjects();
+console.log(carl.PRAssignment('JavaScript'));
+console.log(judith.sprintChallenge('CSS'));
+console.log(carol.debugsCode(carl,'Ruby'));
+console.log(glenn.favInstructor);
